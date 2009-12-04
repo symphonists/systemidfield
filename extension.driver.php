@@ -18,6 +18,23 @@
 				'description' => 'Displays system ids in a column on the publish page.'
 			);
 		}
+		
+		public function uninstall() {
+			$this->_Parent->Database->query("DROP TABLE `tbl_fields_systemid`");
+		}
+		
+		public function install() {
+			$this->_Parent->Database->query("
+				CREATE TABLE IF NOT EXISTS `tbl_fields_systemid` (
+					`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+					`field_id` INT(11) UNSIGNED NOT NULL,
+					PRIMARY KEY (`id`),
+					KEY `field_id` (`field_id`)
+				)
+			");
+			
+			return true;
+		}
 	}
 	
 ?>
