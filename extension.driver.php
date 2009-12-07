@@ -9,13 +9,13 @@
 			return array(
 				'name'			=> 'Field: System Id',
 				'version'		=> '1.0.1',
-				'release-date'	=> '2009-12-04',
+				'release-date'	=> '2009-12-07',
 				'author'		=> array(
 					'name'			=> 'Rowan Lewis',
 					'website'		=> 'http://rowanlewis.com/',
 					'email'			=> 'me@rowanlewis.com'
 				),
-				'description' => 'Displays system ids in a column on the publish page.'
+				'description' => 'Displays the Entry Id in a column on the publish page.'
 			);
 		}
 		

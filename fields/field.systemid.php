@@ -31,6 +31,10 @@
 			");
 		}
 		
+		public function canFilter() {
+			return true;
+		}
+		
 		public function isSortable() {
 			return true;
 		}
@@ -42,6 +46,29 @@
 		public function displaySettingsPanel(&$wrapper, $errors = null, $append_before = null, $append_after = null) {
 			parent::displaySettingsPanel($wrapper, $errors);
 			$this->appendShowColumnCheckbox($wrapper);
+		}
+		
+		public function buildSummaryBlock($errors = null) {
+			$order = $this->get('sortorder');
+			$div = new XMLElement('div');
+			$div->appendChild(Widget::Input(
+				"fields[{$order}][location]",
+				'main', 'hidden'
+			));
+			
+			$label = Widget::Label(__('Label'));
+			$label->appendChild(Widget::Input(
+				"fields[{$order}][label]",
+				$this->get('label')
+			));
+			
+			if (isset($errors['label'])) {
+				$label = Widget::wrapFormElementWithError($label, $errors['label']);
+			}
+			
+			$div->appendChild($label);
+			
+			return $div;
 		}
 		
 	/*-------------------------------------------------------------------------
@@ -75,7 +102,9 @@
 	-------------------------------------------------------------------------*/
 		
 		public function appendFormattedElement(&$wrapper, $data, $encode = false, $mode = null) {
-			// Nothing to show...
+			$element = new XMLElement($this->get('element_name'));
+			$element->setValue(@$data['value'] ? $data['value'] : '0');
+			$wrapper->appendChild($element);
 		}
 		
 		public function prepareTableValue($data, XMLElement $link = null) {
@@ -86,6 +115,15 @@
 					'value'		=> General::sanitize(strip_tags($data['value']))
 				), $link
 			);
+		}
+		
+	/*-------------------------------------------------------------------------
+		Filtering:
+	-------------------------------------------------------------------------*/
+		
+		public function displayDatasourceFilterPanel(&$wrapper, $data = null, $errors = null, $prefix = null, $postfix = null) {
+			$wrapper = new XMLElement('p');
+			$wrapper->setAttribute('style', 'display: none;');
 		}
 		
 	/*-------------------------------------------------------------------------
