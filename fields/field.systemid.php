@@ -103,6 +103,7 @@
 		
 		public function appendFormattedElement(&$wrapper, $data, $encode = false, $mode = null) {
 			$element = new XMLElement($this->get('element_name'));
+			$element->setAttribute('hash', @md5($data['value']));
 			$element->setValue(@$data['value'] ? $data['value'] : '0');
 			$wrapper->appendChild($element);
 		}
