@@ -8,8 +8,8 @@
 		public function about() {
 			return array(
 				'name'			=> 'Field: System Id',
-				'version'		=> '1.0.1',
-				'release-date'	=> '2009-12-07',
+				'version'		=> '1.0.2',
+				'release-date'	=> '2009-12-08',
 				'author'		=> array(
 					'name'			=> 'Rowan Lewis',
 					'website'		=> 'http://rowanlewis.com/',

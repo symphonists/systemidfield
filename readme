@@ -3,9 +3,9 @@ Field: System Id
 
 Displays the Entry Id in a column on the publish page.
 
-Version: 1.0.1
+Version: 1.0.2
 Author: Rowan Lewis <me@rowanlewis.com>
-Build Date: 7 December 2009
+Build Date: 8 December 2009
 Requirements: Symphony 2.0.6
 
 
