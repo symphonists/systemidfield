@@ -108,12 +108,12 @@
 			$wrapper->appendChild($element);
 		}
 		
-		public function prepareTableValue($data, XMLElement $link = null) {
-			if (empty($data) or strlen(trim($data['value'])) == 0) return;
+		public function prepareTableValue($data, XMLElement $link = null, $entry_id = null) {
+                        if (is_null($entry_id)) return;
 			
 			return parent::prepareTableValue(
 				array(
-					'value'		=> General::sanitize(strip_tags($data['value']))
+					'value'		=> $entry_id
 				), $link
 			);
 		}
