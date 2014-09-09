@@ -76,7 +76,11 @@
 	-------------------------------------------------------------------------*/
 
 		public function displayPublishPanel(&$wrapper, $data = null, $error = null, $prefix = null, $postfix = null) {
-			// Nothing to show...
+			$label = Widget::Label($this->get('label'));
+			$text = new XMLElement('div', $data['value']);
+
+			$wrapper->appendChild($label);
+			$wrapper->appendChild($text);
 		}
 
 	/*-------------------------------------------------------------------------
