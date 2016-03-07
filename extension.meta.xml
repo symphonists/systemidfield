@@ -5,6 +5,7 @@
 	<repo type="github">https://github.com/symphonists/systemidfield</repo>
 	<types>
 		<type>Field Types</type>
+		<type>ID</type>
 	</types>
 	<authors>
 		<author>
@@ -17,16 +18,19 @@
 		</author>
 	</authors>
 	<releases>
-		<release version="1.2.0" date="2014-09-09" min='2.3' max='2.5.x'>
+		<release version="1.2.1" date="2016-03-07" min="2.3" max="2.x.x">
+			- Updated compatibility info
+		</release>
+		<release version="1.2.0" date="2014-09-09" min="2.3" max="2.5.x">
 			- Display the entry ID in the publish page.
 		</release>
-		<release version="1.1.0" date="2014-08-13" min='2.3' max='2.5.x'>
+		<release version="1.1.0" date="2014-08-13" min="2.3" max="2.5.x">
 			- Updated for Symphony 2.3+
 		</release>
-		<release version="1.0.2" date="2009-12-08" min='2.0.6' max='2.2'>
+		<release version="1.0.2" date="2009-12-08" min="2.0.6" max="2.2">
 			- Added @hash attribute that contains the entry Id as hexadecimal number. No idea why.
 		</release>
-		<release version="1.0.1" date="2009-12-07" min='2.0.6' max='2.2'>
+		<release version="1.0.1" date="2009-12-07" min="2.0.6" max="2.2">
 			- Initial release with all planned features and no planned bugs.
 		</release>
 	</releases>
