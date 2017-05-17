@@ -55,8 +55,7 @@
 		Settings:
 	-------------------------------------------------------------------------*/
 
-		public function displaySettingsPanel(XMLElement &$wrapper, $errors = null)
-		{
+		public function displaySettingsPanel(XMLElement &$wrapper, $errors = null) {
 			parent::displaySettingsPanel($wrapper, $errors);
 			$this->appendShowColumnCheckbox($wrapper);
 		}
@@ -65,8 +64,7 @@
 		Publish:
 	-------------------------------------------------------------------------*/
 
-		public function displayPublishPanel(XMLElement &$wrapper, $data = null, $flagWithError = null, $fieldnamePrefix = null, $fieldnamePostfix = null, $entry_id = null)
-		{
+		public function displayPublishPanel(XMLElement &$wrapper, $data = null, $flagWithError = null, $fieldnamePrefix = null, $fieldnamePostfix = null, $entry_id = null) {
 			$label = Widget::Label($this->get('label'));
 			$text = new XMLElement('div', $entry_id);
 
@@ -78,15 +76,13 @@
 		Input:
 	-------------------------------------------------------------------------*/
 
-		public function checkPostFieldData($data, &$message, $entry_id = null)
-		{
+		public function checkPostFieldData($data, &$message, $entry_id = null) {
 			$message = null;
 
 			return self::__OK__;
 		}
 
-		public function processRawFieldData($data, &$status, $simulate = false, $entry_id = null)
-		{
+		public function processRawFieldData($data, &$status, &$message = NULL, $simulate = false, $entry_id = NULL) {
 			$status = self::__OK__;
 
 			return $data;
@@ -96,8 +92,7 @@
 		Output:
 	-------------------------------------------------------------------------*/
 
-		public function appendFormattedElement(&$wrapper, $data, $encode = false, $mode = null)
-		{
+		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = NULL) {
 			$element = new XMLElement($this->get('element_name'));
 			$element->setAttribute('hash', @dechex($data['value']));
 			$element->setValue(@$data['value'] ? $data['value'] : '0');
@@ -113,8 +108,7 @@
 		Filtering:
 	-------------------------------------------------------------------------*/
 
-		public function displayDatasourceFilterPanel(&$wrapper, $data = null, $errors = null, $prefix = null, $postfix = null)
-		{
+		public function displayDatasourceFilterPanel(XMLElement &$wrapper, $data = null, $errors = null, $prefix = null, $postfix = null) {
 			$wrapper = new XMLElement('p');
 			$wrapper->setAttribute('style', 'display: none;');
 		}
