@@ -18,6 +18,10 @@
 		</author>
 	</authors>
 	<releases>
+		<release version="1.2.2" date="2017-07-04" min="2.3" max="2.x.x">
+			- Fix broken sort
+			- Do not require a table
+		</release>
 		<release version="1.2.1" date="2016-03-07" min="2.3" max="2.x.x">
 			- Updated compatibility info
 		</release>
