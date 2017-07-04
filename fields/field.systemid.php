@@ -140,10 +140,11 @@
 	-------------------------------------------------------------------------*/
 
 		public function buildSortingSQL(&$joins, &$where, &$sort, $order = 'ASC') {
-			$field_id = $this->get('id');
+			$sort = 'ORDER BY ' . (strtolower($order) == 'random' ? 'RAND()' : "`e`.`id` {$order}");
+		}
 
-			$joins .= "LEFT OUTER JOIN `tbl_entries_data_{$field_id}` AS ed ON (e.id = ed.entry_id) ";
-			$sort = 'ORDER BY ' . (strtolower($order) == 'random' ? 'RAND()' : "ed.value {$order}");
+		public function buildSortingSelectSQL($sort, $order = 'ASC') {
+			return null;
 		}
 	}
 
