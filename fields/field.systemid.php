@@ -82,7 +82,7 @@
 			return self::__OK__;
 		}
 
-		public function processRawFieldData($data, &$status, &$message = NULL, $simulate = false, $entry_id = NULL) {
+		public function processRawFieldData($data, &$status, &$message = null, $simulate = false, $entry_id = null) {
 			$status = self::__OK__;
 
 			return $data;
@@ -92,7 +92,7 @@
 		Output:
 	-------------------------------------------------------------------------*/
 
-		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = NULL) {
+		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = null) {
 			$element = new XMLElement($this->get('element_name'));
 			$element->setAttribute('hash', @dechex($data['value']));
 			$element->setValue(@$data['value'] ? $data['value'] : '0');
