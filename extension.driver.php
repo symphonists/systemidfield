@@ -1,15 +1,18 @@
 <?php
 
-	class Extension_SystemIdField extends Extension {
+	class Extension_SystemIdField extends Extension
+	{
 	/*-------------------------------------------------------------------------
 		Definition:
 	-------------------------------------------------------------------------*/
 
-		public function uninstall() {
+		public function uninstall()
+		{
 			Symphony::Database()->query("DROP TABLE `tbl_fields_systemid`");
 		}
 
-		public function install() {
+		public function install()
+		{
 			Symphony::Database()->query("
 				CREATE TABLE IF NOT EXISTS `tbl_fields_systemid` (
 					`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,

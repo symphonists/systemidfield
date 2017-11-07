@@ -2,12 +2,14 @@
 
 	if (!defined('__IN_SYMPHONY__')) die('<h2>Symphony Error</h2><p>You cannot directly access this file</p>');
 
-	class FieldSystemId extends Field {
+	class FieldSystemId extends Field
+	{
 	/*-------------------------------------------------------------------------
 		Definition:
 	-------------------------------------------------------------------------*/
 
-		public function __construct() {
+		public function __construct()
+		{
 			parent::__construct();
 
 			$this->_name = __('System Id');
@@ -17,25 +19,30 @@
 			$this->set('show_column', 'yes');
 		}
 
-		public function createTable() {
+		public function createTable()
+		{
 			return true;
 		}
 
-		public function canFilter() {
+		public function canFilter()
+		{
 			return true;
 		}
 
-		public function isSortable() {
+		public function isSortable()
+		{
 			return true;
 		}
 
-		public function requiresTable() {
+		public function requiresTable()
+		{
 			return false;
 		}
 
-		public function commit() {
+		public function commit()
+		{
 			// if the default implementation works...
-			if(!parent::commit()) {
+			if (!parent::commit()) {
 				return false;
 			}
 
@@ -55,7 +62,8 @@
 		Settings:
 	-------------------------------------------------------------------------*/
 
-		public function displaySettingsPanel(XMLElement &$wrapper, $errors = null) {
+		public function displaySettingsPanel(XMLElement &$wrapper, $errors = null)
+		{
 			parent::displaySettingsPanel($wrapper, $errors);
 			$this->appendShowColumnCheckbox($wrapper);
 		}
@@ -64,7 +72,8 @@
 		Publish:
 	-------------------------------------------------------------------------*/
 
-		public function displayPublishPanel(XMLElement &$wrapper, $data = null, $flagWithError = null, $fieldnamePrefix = null, $fieldnamePostfix = null, $entry_id = null) {
+		public function displayPublishPanel(XMLElement &$wrapper, $data = null, $flagWithError = null, $fieldnamePrefix = null, $fieldnamePostfix = null, $entry_id = null)
+		{
 			$label = Widget::Label($this->get('label'));
 			$text = new XMLElement('div', $entry_id);
 
@@ -76,13 +85,15 @@
 		Input:
 	-------------------------------------------------------------------------*/
 
-		public function checkPostFieldData($data, &$message, $entry_id = null) {
+		public function checkPostFieldData($data, &$message, $entry_id = null)
+		{
 			$message = null;
 
 			return self::__OK__;
 		}
 
-		public function processRawFieldData($data, &$status, &$message = null, $simulate = false, $entry_id = null) {
+		public function processRawFieldData($data, &$status, &$message = null, $simulate = false, $entry_id = null)
+		{
 			$status = self::__OK__;
 
 			return $data;
@@ -92,7 +103,8 @@
 		Output:
 	-------------------------------------------------------------------------*/
 
-		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = null) {
+		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = null)
+		{
 			$element = new XMLElement($this->get('element_name'));
 			$element->setAttribute('hash', @dechex($data['value']));
 			$element->setValue(@$data['value'] ? $data['value'] : '0');
@@ -108,7 +120,8 @@
 		Filtering:
 	-------------------------------------------------------------------------*/
 
-		public function displayDatasourceFilterPanel(XMLElement &$wrapper, $data = null, $errors = null, $prefix = null, $postfix = null) {
+		public function displayDatasourceFilterPanel(XMLElement &$wrapper, $data = null, $errors = null, $prefix = null, $postfix = null)
+		{
 			$wrapper = new XMLElement('p');
 			$wrapper->setAttribute('style', 'display: none;');
 		}
